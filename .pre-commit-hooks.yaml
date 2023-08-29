@@ -14,19 +14,19 @@
   name: Pint
   language: system
   entry: docker-compose run --rm -T app ./vendor/bin/pint
-  files: '^(\.*.php|composer\..*)'
+  files: '^(.*\.php|composer\..*)'
   pass_filenames: false
 - id: docker_hot_larastan
   name: Larastan
   language: system
   entry: docker-compose run --rm -T app ./vendor/bin/phpstan analyse --memory-limit=2G
-  files: '^(\.*.php|composer\..*)'
+  files: '^(.*\.php|composer\..*)'
   pass_filenames: false
 - id: docker_hot_backend_test
   name: Backend Test
   language: system
   entry: docker-compose run --rm -T app php artisan test -p
-  files: '^(\.*.php|composer\..*)'
+  files: '^(.*\.php|composer\..*)'
   pass_filenames: false
 - id: docker_hot_vtsc
   name: Vtsc
