@@ -1,12 +1,14 @@
 - id: docker_hot_eslint
   name: ESLint
   language: system
-  entry: docker-compose run --rm -T hot npm run lint:fix
+  entry: docker-compose run --rm -T hot npm run
+  args: [lint:fix]
   files: '^(resources/(js|ts)|package(-lock)?\.json)'
   pass_filenames: false
 - id: docker_hot_stylelint
   name: Stylelint
-  entry: docker-compose run --rm -T hot npm run stylelint-lint
+  entry: docker-compose run --rm -T hot npm run
+  args: [stylelint-lint]
   language: system
   files: '^(resources/.*\.(vue|css)|package(-lock)?\.json)'
   pass_filenames: false
@@ -19,24 +21,28 @@
 - id: docker_hot_larastan
   name: Larastan
   language: system
-  entry: docker-compose run --rm -T app ./vendor/bin/phpstan analyse --memory-limit=2G
+  entry: docker-compose run --rm -T app ./vendor/bin/phpstan analyse
+  args: [--memory-limit=2G]
   files: '^(.*\.php|composer\.(json|lock))'
   pass_filenames: false
 - id: docker_hot_backend_test
   name: Backend Test
   language: system
-  entry: docker-compose run --rm -T app php artisan test --parallel
+  entry: docker-compose run --rm -T app php artisan test
+  args: [--parallel]
   files: '^(.*\.php|composer\.(json|lock))'
   pass_filenames: false
 - id: docker_hot_vtsc
   name: Vtsc
   language: system
-  entry: docker-compose run --rm -T hot npm run vtsc
+  entry: docker-compose run --rm -T hot npm run
+  args: [vtsc]
   files: '^(resources/(js|ts)|tsconfig\.json)'
   pass_filenames: false
 - id: docker_hot_frontend_build
   name: Frontend Build
   language: system
-  entry: docker-compose run --rm -T hot npm run build
+  entry: docker-compose run --rm -T hot npm run
+  args: [build]
   files: '^resources/(js|ts)'
   pass_filenames: false
