@@ -25,7 +25,7 @@
 - id: docker_hot_backend_test
   name: Backend Test
   language: system
-  entry: docker-compose run --rm -T app php artisan test -p
+  entry: docker-compose run --rm -T app php artisan test --parallel
   files: '^(.*\.php|composer\.(json|lock))'
   pass_filenames: false
 - id: docker_hot_vtsc
