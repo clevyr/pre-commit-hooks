@@ -1,0 +1,42 @@
+- id: docker_hot_eslint
+  name: ESLint
+  language: system
+  entry: docker-compose run --rm -T hot npm run lint:fix
+  files: '^(resources/(js|ts)|package(-lock)?\.json)'
+  pass_filenames: false
+- id: docker_hot_stylelint
+  name: Stylelint
+  entry: docker-compose run --rm -T hot npm run stylelint-lint
+  language: system
+  files: '^(resources/.*\.css|package(-lock)?\.json)'
+  pass_filenames: false
+- id: docker_hot_pint
+  name: Pint
+  language: system
+  entry: docker-compose run --rm -T app ./vendor/bin/pint
+  files: '^(\.*.php|composer\..*)'
+  pass_filenames: false
+- id: docker_hot_larastan
+  name: Larastan
+  language: system
+  entry: docker-compose run --rm -T app ./vendor/bin/phpstan analyse --memory-limit=2G
+  files: '^(\.*.php|composer\..*)'
+  pass_filenames: false
+- id: docker_hot_backend_test
+  name: Backend Test
+  language: system
+  entry: docker-compose run --rm -T app php artisan test -p
+  files: '^(\.*.php|composer\..*)'
+  pass_filenames: false
+- id: docker_hot_vtsc
+  name: Vtsc
+  language: system
+  entry: docker-compose run --rm -T hot npm run vtsc
+  files: '^(resources/(js|ts)|tsconfig\.json)'
+  pass_filenames: false
+- id: docker_hot_frontend_build
+  name: Frontend Build
+  language: system
+  entry: docker-compose run --rm -T hot npm run build
+  files: '^resources/(js|ts)'
+  pass_filenames: false
