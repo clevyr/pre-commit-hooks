@@ -8,7 +8,7 @@
   name: Stylelint
   entry: docker-compose run --rm -T hot npm run stylelint-lint
   language: system
-  files: '^(resources/.*\.css|package(-lock)?\.json)'
+  files: '^(resources/.*\.(vue|css)|package(-lock)?\.json)'
   pass_filenames: false
 - id: docker_hot_pint
   name: Pint
