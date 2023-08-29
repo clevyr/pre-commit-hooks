@@ -1,0 +1,13 @@
+name: Validate
+
+on: push
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - run: pip install pre-commit
+      - run: pre-commit validate-manifest .pre-commit-hooks.yaml
