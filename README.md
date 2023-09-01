@@ -7,7 +7,7 @@ This repo contains various [pre-commit](https://pre-commit.com) hooks.
 ```yaml
 repos:
   - repo: https://github.com/clevyr/pre-commit-hooks
-    rev: v0.0.4
+    rev: v0.0.5
     hooks:
       - id: docker_hot_eslint
       - id: docker_hot_stylelint
@@ -15,6 +15,7 @@ repos:
       - id: docker_hot_larastan
       - id: docker_hot_backend_test
       - id: docker_hot_vtsc
+      - id: docker_hot_vitest
       - id: docker_hot_frontend_build
 ```
 
@@ -31,5 +32,7 @@ repos:
 ### docker_hot_backend_test
 
 ### docker_hot_vtsc
+
+### docker_hot_vitest
 
 ### docker_hot_frontend_build

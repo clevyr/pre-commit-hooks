@@ -39,6 +39,13 @@
   args: [vtsc]
   files: '^(resources/(js|ts)|tsconfig\.json)'
   pass_filenames: false
+- id: docker_hot_vitest
+  name: Vitest
+  language: system
+  entry: docker-compose run --rm -T hot npm run
+  args: [test, run]
+  files: '^(resources/(js|ts)|package(-lock)?\.json)'
+  pass_filenames: false
 - id: docker_hot_frontend_build
   name: Frontend Build
   language: system
