@@ -7,7 +7,7 @@ jobs:
     name: Validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
       - run: pip install pre-commit
       - run: pre-commit validate-manifest .pre-commit-hooks.yaml
