@@ -5,6 +5,13 @@
   args: [lint:fix]
   files: '^(resources/(js|ts)|package(-lock)?\.json)'
   pass_filenames: false
+- id: docker_hot_format
+  name: Stylelint
+  entry: docker-compose run --rm -T hot npm run
+  args: [format]
+  language: system
+  files: '^(resources/.*\.(vue|css)|package(-lock)?\.json)'
+  pass_filenames: false
 - id: docker_hot_stylelint
   name: Stylelint
   entry: docker-compose run --rm -T hot npm run

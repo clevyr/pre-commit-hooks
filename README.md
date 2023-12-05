@@ -10,6 +10,7 @@ repos:
     rev: v0.0.5
     hooks:
       - id: docker_hot_eslint
+      - id: docker_hot_format
       - id: docker_hot_stylelint
       - id: docker_hot_pint
       - id: docker_hot_larastan
@@ -24,6 +25,8 @@ repos:
 ### docker_hot_eslint
 
 ### docker_hot_stylelint
+
+### docker_hot_format
 
 ### docker_hot_pint
 
