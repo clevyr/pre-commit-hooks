@@ -4,34 +4,29 @@
   entry: docker-compose run --rm -T hot npm run
   args: [lint:fix]
   files: '^(resources/(js|ts)|package(-lock)?\.json)'
-  pass_filenames: false
 - id: docker_hot_format
   name: Stylelint
   entry: docker-compose run --rm -T hot npm run
   args: [format]
   language: system
   files: '^(resources/.*\.(vue|css)|package(-lock)?\.json)'
-  pass_filenames: false
 - id: docker_hot_stylelint
   name: Stylelint
   entry: docker-compose run --rm -T hot npm run
   args: [stylelint-lint]
   language: system
   files: '^(resources/.*\.(vue|css)|package(-lock)?\.json)'
-  pass_filenames: false
 - id: docker_hot_pint
   name: Pint
   language: system
   entry: docker-compose run --rm -T app ./vendor/bin/pint
   files: '^(.*\.php|composer\.(json|lock))'
-  pass_filenames: false
 - id: docker_hot_larastan
   name: Larastan
   language: system
   entry: docker-compose run --rm -T app ./vendor/bin/phpstan analyse
   args: [--memory-limit=2G]
   files: '^(.*\.php|composer\.(json|lock))'
-  pass_filenames: false
 - id: docker_hot_backend_test
   name: Backend Test
   language: system
